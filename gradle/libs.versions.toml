@@ -9,6 +9,10 @@ junit = "4.13.2"
 androidxTestExtJunit = "1.1.5"
 androidxTestEspresso = "3.5.1"
 
+# Plugin versions
+androidGradlePlugin = "8.1.2"
+jetbrainsKotlinAndroidPlugin = "1.8.10"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
 androidx-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
@@ -30,3 +34,5 @@ androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 
 [plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "jetbrainsKotlinAndroidPlugin" }
