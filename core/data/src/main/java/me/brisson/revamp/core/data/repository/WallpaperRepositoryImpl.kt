@@ -21,19 +21,8 @@ class WallpaperRepositoryImpl @Inject constructor(
         colors: List<String>?,
         seed: String?
     ): Flow<WallpaperList> = flow {
-        val (searchResultList, meta) =
-            network.search(querySearch, page, sorting, order, colors, seed)
-
-        val list = WallpaperList(
-            items = searchResultList.map { it.asEntity() },
-            currentPage = meta?.currentPage,
-            lastPage = meta?.lastPage,
-            perPage = meta?.perPage,
-            total = meta?.total,
-            query = meta?.query,
-        )
-
-        emit(list)
+        val wallpaperSearchResult = network.search(querySearch, page, sorting, order, colors, seed)
+        emit(wallpaperSearchResult.asEntity())
     }
 
     override fun wallpaperDetail(id: String): Flow<Wallpaper> = flow {

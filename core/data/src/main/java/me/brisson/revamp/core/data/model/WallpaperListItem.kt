@@ -4,5 +4,5 @@ data class WallpaperListItem(
     val id: String,
     val category: String,
     val colors: List<String>,
-    val thumbsUrl: String,
+    val thumbUrl: String,
 )
