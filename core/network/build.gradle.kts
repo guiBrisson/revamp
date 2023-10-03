@@ -7,11 +7,15 @@ plugins {
 }
 
 android {
-    namespace = "me.brisson.network"
+    namespace = "me.brisson.revamp.core.network"
     compileSdk = 33
 
     defaultConfig {
         minSdk = 24
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     compileOptions {
