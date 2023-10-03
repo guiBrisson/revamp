@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Revamp"
 include(":app")
- 
+include(":core:network")
