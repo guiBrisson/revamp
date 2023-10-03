@@ -26,6 +26,6 @@ interface RetrofitWallHavenNetworkApi {
 
     @GET(value = "tag/{id}")
     fun tagDetail(
-        @Path("id") tagId: String,
+        @Path("id") tagId: Long,
     ): NetworkResponse<NetworkWallpaperTag>
 }

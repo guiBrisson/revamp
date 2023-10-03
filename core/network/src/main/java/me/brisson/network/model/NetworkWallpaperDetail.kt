@@ -11,7 +11,7 @@ data class NetworkWallpaperDetail(
     val shortUrl: String,
     val uploader: NetworkWallpaperUploader,
     val views: Int,
-    val favourites: Int,
+    val favorites: Int,
     val source: String,
     val purity: String,
     val category: String,
@@ -24,7 +24,7 @@ data class NetworkWallpaperDetail(
     @SerialName("file_size")
     val fileSize: Long,
     @SerialName("file_type")
-    val fileType: Long,
+    val fileType: String,
     @SerialName("created_at")
     val createdAt: String,
     val colors: List<String>,
@@ -59,7 +59,7 @@ data class NetworkWallpaperTag(
     val name: String,
     val alias: String,
     @SerialName("category_id")
-    val categoryId: String,
+    val categoryId: Long,
     val category: String,
     val purity: String,
     @SerialName("created_at")

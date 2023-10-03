@@ -10,7 +10,7 @@ data class NetworkWallpaperSearchResult(
     @SerialName("short_url")
     val shortUrl: String,
     val views: Int,
-    val favourites: Int,
+    val favorites: Int,
     val source: String,
     val purity: String,
     val category: String,
@@ -23,7 +23,7 @@ data class NetworkWallpaperSearchResult(
     @SerialName("file_size")
     val fileSize: Long,
     @SerialName("file_type")
-    val fileType: Long,
+    val fileType: String,
     @SerialName("created_at")
     val createdAt: String,
     val colors: List<String>,

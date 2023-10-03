@@ -26,6 +26,19 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
+    sourceSets {
+        getByName("main") {
+            assets {
+                srcDirs("src/main/assets", "src/debug/assets")
+            }
+        }
+    }
 }
 
 dependencies {
@@ -44,4 +57,5 @@ dependencies {
 
     // Test
     testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
 }

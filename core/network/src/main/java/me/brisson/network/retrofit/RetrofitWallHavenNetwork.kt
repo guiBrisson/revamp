@@ -31,7 +31,7 @@ class RetrofitWallHavenNetwork @Inject constructor(
         .create(RetrofitWallHavenNetworkApi::class.java)
 
     override suspend fun search(
-        querySearch: String,
+        querySearch: String?,
         page: Int?,
         sorting: String?,
         order: String?,
@@ -46,7 +46,7 @@ class RetrofitWallHavenNetwork @Inject constructor(
         return networkApi.wallpaperDetail(id).data
     }
 
-    override suspend fun tagDetail(id: String): NetworkWallpaperTag {
+    override suspend fun tagDetail(id: Long): NetworkWallpaperTag {
         return networkApi.tagDetail(id).data
     }
 

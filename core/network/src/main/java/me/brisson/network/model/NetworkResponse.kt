@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class NetworkResponse<T>(
     val data: T,
-    val meta: MetaNetworkResponse?,
+    val meta: MetaNetworkResponse? = null,
 )
 
 @Serializable
