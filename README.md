@@ -3,7 +3,9 @@ The Revamp App while serve as a wallpaper search engine utilizing the [Wallhaven
 While the primary goal of the app is to showcase the project structure and code, it also offers a practical utility for users who want to discover and apply beautiful wallpapers to personalize their devices.
 
 ### App Modularization 
-![Screenshot from 2023-10-02 16-04-24](https://github.com/guiBrisson/revamp/assets/54915600/6693f474-e106-4438-b27a-ed2671e8e7c8)
+*(obs: The image below will be updated while progress is being made)*
+![image](https://github.com/guiBrisson/revamp/assets/54915600/25ffe478-1435-4ab6-aed1-13a1310d66ce)
+
 
 1. **Home Module**:
     The home module is responsible for displaying the app's main interface.
