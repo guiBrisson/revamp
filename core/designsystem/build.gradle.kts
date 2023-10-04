@@ -1,32 +1,26 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
 }
 
 android {
-    namespace = "me.brisson.revamp"
+    namespace = "me.brisson.revamp.core.designsystem"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "me.brisson.revamp"
         minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
-        debug {
-            applicationIdSuffix = ".debug"
-        }
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -42,24 +36,13 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.2"
     }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-    testOptions {
-        unitTests {
-            isIncludeAndroidResources = true
-        }
-    }
 }
 
 dependencies {
-    implementation(project(":core:designsystem"))
-
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle)
-    implementation(libs.androidx.activity)
+
+    implementation(libs.appcompat)
+    implementation(libs.material)
 
     // Compose
     implementation(platform(libs.androidx.compose.bom))
@@ -68,12 +51,8 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
 
-    // Test dependencies
+    // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.test.espresso)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.compose.ui.junit4)
-    debugImplementation(libs.androidx.compose.ui.tooling)
-    debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
