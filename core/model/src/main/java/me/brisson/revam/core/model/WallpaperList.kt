@@ -1,4 +1,4 @@
-package me.brisson.revamp.core.data.model
+package me.brisson.revam.core.model
 
 data class WallpaperList(
     val items: List<WallpaperListItem>,

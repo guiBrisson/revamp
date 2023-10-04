@@ -1,4 +1,4 @@
-package me.brisson.revamp.core.data.model
+package me.brisson.revam.core.model
 
 data class WallpaperTag(
     val id: Long,
