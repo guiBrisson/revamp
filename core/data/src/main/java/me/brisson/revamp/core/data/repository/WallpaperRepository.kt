@@ -1,10 +1,9 @@
 package me.brisson.revamp.core.data.repository
 
-import me.brisson.revamp.core.data.model.WallpaperList
+import me.brisson.revam.core.model.WallpaperList
 import kotlinx.coroutines.flow.Flow
-import me.brisson.revamp.core.data.model.Wallpaper
-import me.brisson.revamp.core.data.model.WallpaperTag
-
+import me.brisson.revam.core.model.Wallpaper
+import me.brisson.revam.core.model.WallpaperTag
 
 interface WallpaperRepository {
     fun search(

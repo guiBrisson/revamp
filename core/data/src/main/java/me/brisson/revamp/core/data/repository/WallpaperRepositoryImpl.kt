@@ -3,9 +3,9 @@ package me.brisson.revamp.core.data.repository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import me.brisson.network.WallpaperNetworkDataSource
-import me.brisson.revamp.core.data.model.Wallpaper
-import me.brisson.revamp.core.data.model.WallpaperList
-import me.brisson.revamp.core.data.model.WallpaperTag
+import me.brisson.revam.core.model.Wallpaper
+import me.brisson.revam.core.model.WallpaperList
+import me.brisson.revam.core.model.WallpaperTag
 import me.brisson.revamp.core.data.model.asEntity
 import javax.inject.Inject
 

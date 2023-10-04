@@ -5,6 +5,11 @@ import me.brisson.network.model.NetworkWallpaperDetail
 import me.brisson.network.model.NetworkWallpaperSearchResult
 import me.brisson.network.model.NetworkWallpaperTag
 import me.brisson.network.model.NetworkWallpaperUploader
+import me.brisson.revam.core.model.WallpaperList
+import me.brisson.revam.core.model.WallpaperListItem
+import me.brisson.revam.core.model.Wallpaper
+import me.brisson.revam.core.model.WallpaperUploader
+import me.brisson.revam.core.model.WallpaperTag
 
 fun Pair<List<NetworkWallpaperSearchResult>, MetaNetworkResponse?>.asEntity(): WallpaperList {
     return WallpaperList(
