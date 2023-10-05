@@ -10,7 +10,7 @@ import retrofit2.http.Query
 
 interface RetrofitWallHavenNetworkApi {
     @GET(value = "search")
-    fun getSearch(
+    suspend fun getSearch(
         @Query("q") searchQuery: String?,
         @Query("page") page: Int?,
         @Query("sorting") sorting: String?, //date_added* , relevance, random, views, favorites, toplist
@@ -20,12 +20,12 @@ interface RetrofitWallHavenNetworkApi {
     ): NetworkResponse<List<NetworkWallpaperSearchResult>>
 
     @GET(value = "w/{id}")
-    fun wallpaperDetail(
+    suspend fun wallpaperDetail(
         @Path("id") wallpaperId: String,
     ): NetworkResponse<NetworkWallpaperDetail>
 
     @GET(value = "tag/{id}")
-    fun tagDetail(
+    suspend fun tagDetail(
         @Path("id") tagId: Long,
     ): NetworkResponse<NetworkWallpaperTag>
 }

@@ -1,10 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "me.brisson.revamp.core.designsystem"
+    namespace = "me.brisson.revamp.feature.home"
     compileSdk = 33
 
     defaultConfig {
@@ -39,7 +41,19 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:designsystem"))
+    implementation(project(":core:model"))
+    implementation(project(":core:domain"))
+
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle)
+    implementation(libs.androidx.lifecycle.compose)
+    implementation(libs.coil)
+
+    // DI
+    implementation(libs.dagger.hilt)
+    implementation(libs.androidx.hilt.navigation.compose)
+    ksp(libs.dagger.hilt.compiler)
 
     // Compose
     implementation(platform(libs.androidx.compose.bom))

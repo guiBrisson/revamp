@@ -93,7 +93,7 @@ class NetworkEntityKtTest {
         assertEquals("1po8r1", entity.id)
         assertEquals("general", entity.category)
         assertEquals(listOf("#000000", "#663300", "#424153", "#660000", "#996633"), entity.colors)
-        assertEquals("https://th.wallhaven.cc/orig/1p/1po8r1.jpg", entity.thumbUrl)
+        assertEquals("https://th.wallhaven.cc/lg/1p/1po8r1.jpg", entity.thumbUrl)
     }
 
     @Test

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="date_added_sorting">Latest</string>
+    <string name="relevance_sorting">Relevance</string>
+    <string name="random_sorting">Random</string>
+    <string name="views_sorting">Views</string>
+    <string name="favorites_sorting">Favorites</string>
+    <string name="top_list_sorting">Toplist</string>
+</resources>
