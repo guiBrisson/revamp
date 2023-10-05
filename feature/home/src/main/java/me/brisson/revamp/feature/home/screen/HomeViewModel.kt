@@ -1,6 +1,5 @@
 package me.brisson.revamp.feature.home.screen
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,23 +19,46 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val sortingWallpapersUseCase: GetSortingWallpapersUseCase
 ) : ViewModel() {
-    private val _uiState: MutableStateFlow<SortResultUiState> =
+    private val _sortingUiState: MutableStateFlow<SortResultUiState> =
         MutableStateFlow(SortResultUiState.Loading)
-    val uiState: StateFlow<SortResultUiState> = _uiState.asStateFlow()
+    val sortingUiState: StateFlow<SortResultUiState> = _sortingUiState.asStateFlow()
 
     fun setWallpaperSortingResult(sorting: WallpaperSorting) {
         viewModelScope.launch(Dispatchers.IO) {
             sortingWallpapersUseCase(sorting)
                 .onStart {
-                    _uiState.update { SortResultUiState.Loading }
+                    _sortingUiState.update { SortResultUiState.Loading }
                 }
                 .catch {
                     it.printStackTrace()
                 }
-                .collect { list ->
-                    Log.d("HomeViewModel", "setWallpaperSortingResult: $list")
-                    _uiState.update { SortResultUiState.Success(list) }
+                .collect { result ->
+                    _sortingUiState.update { SortResultUiState.Success(result) }
                 }
         }
     }
+
+    fun loadMoreWallpapers(sorting: WallpaperSorting, page: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            sortingWallpapersUseCase(sorting, page)
+                .catch { it.printStackTrace() }
+                .collect { result ->
+                    when (val state = sortingUiState.value) {
+                        is SortResultUiState.Success -> {
+                            val updatedList = state.wallpaperList.items.toMutableList().apply {
+                                addAll(result.items)
+                            }
+                            val updatedResult = result.copy(items = updatedList)
+
+                            _sortingUiState.update { SortResultUiState.Success(updatedResult) }
+                        }
+
+                        else -> {
+                            _sortingUiState.update { SortResultUiState.Success(result) }
+                        }
+                    }
+                }
+        }
+    }
+
 }
