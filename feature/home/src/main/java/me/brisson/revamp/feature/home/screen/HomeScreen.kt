@@ -53,7 +53,7 @@ internal fun HomeScreen(
     loadMoreWallpapers: (WallpaperSorting, page: Int) -> Unit,
 ) {
     val scrollState = rememberLazyGridState()
-    var selectedSort by remember { mutableStateOf(WallpaperSorting.DATE_ADDED) }
+    var selectedSort by remember { mutableStateOf(WallpaperSorting.TOP_LIST) }
     val itemSpan = 2
 
     LoadMoreWallpaperOnGridState(scrollState, resultUiState) { nextPage ->

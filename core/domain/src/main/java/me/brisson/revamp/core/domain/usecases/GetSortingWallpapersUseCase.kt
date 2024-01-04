@@ -16,10 +16,10 @@ class GetSortingWallpapersUseCase @Inject constructor(
 }
 
 enum class WallpaperSorting(val apiString: String, @StringRes val resString: Int,) {
-    DATE_ADDED(apiString = "date_added", resString = R.string.date_added_sorting),
     TOP_LIST(apiString = "toplist", resString = R.string.top_list_sorting),
-    RANDOM(apiString = "random", resString = R.string.random_sorting),
+    DATE_ADDED(apiString = "date_added", resString = R.string.date_added_sorting),
     RELEVANCE(apiString = "relevance", resString = R.string.relevance_sorting),
     VIEWS(apiString = "views", resString = R.string.views_sorting),
     FAVORITES(apiString = "favorites", resString = R.string.favorites_sorting),
+    RANDOM(apiString = "random", resString = R.string.random_sorting),
 }
