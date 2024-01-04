@@ -77,7 +77,6 @@ internal fun HomeScreen(
         header(
             modifier = Modifier.padding(top = 32.dp),
             itemSpan = itemSpan,
-            onToggleTheme = { /*TODO*/ },
         )
 
         sortingButtons(
