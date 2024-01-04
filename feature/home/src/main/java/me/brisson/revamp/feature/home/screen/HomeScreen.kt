@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyGridState
@@ -25,6 +26,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import me.brisson.revamp.core.domain.usecases.WallpaperSorting
 import me.brisson.revamp.core.module.designsystem.theme.RevampTheme
+import me.brisson.revamp.feature.home.components.header
 import me.brisson.revamp.feature.home.components.sortingButtons
 import me.brisson.revamp.feature.home.components.wallpaperList
 
@@ -72,6 +74,12 @@ internal fun HomeScreen(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(bottom = 20.dp),
     ) {
+        header(
+            modifier = Modifier.padding(top = 32.dp),
+            itemSpan = itemSpan,
+            onToggleTheme = { /*TODO*/ },
+        )
+
         sortingButtons(
             itemSpan = itemSpan,
             selectedSort = selectedSort,
