@@ -1,26 +1,25 @@
 package me.brisson.revamp.core.domain.usecases
 
+import androidx.annotation.StringRes
 import kotlinx.coroutines.flow.Flow
 import me.brisson.revam.core.model.WallpaperList
 import me.brisson.revamp.core.data.repository.WallpaperRepository
+import me.brisson.revamp.core.domain.R
 import javax.inject.Inject
 
 class GetSortingWallpapersUseCase @Inject constructor(
     private val wallpaperRepository: WallpaperRepository
 ) {
     operator fun invoke(sorting: WallpaperSorting, page: Int = 1): Flow<WallpaperList> {
-        return wallpaperRepository.search(sorting = sorting.string, page = page)
+        return wallpaperRepository.search(sorting = sorting.apiString, page = page)
     }
 }
 
-/**
- * @param string value that matches the API's
- */
-enum class WallpaperSorting(val string: String) {
-    DATE_ADDED(string = "date_added"),
-    RELEVANCE(string = "relevance"),
-    RANDOM(string = "random"),
-    VIEWS(string = "views"),
-    FAVORITES(string = "favorites"),
-    TOP_LIST(string = "toplist"),
+enum class WallpaperSorting(val apiString: String, @StringRes val resString: Int,) {
+    TOP_LIST(apiString = "toplist", resString = R.string.top_list_sorting),
+    DATE_ADDED(apiString = "date_added", resString = R.string.date_added_sorting),
+    RELEVANCE(apiString = "relevance", resString = R.string.relevance_sorting),
+    VIEWS(apiString = "views", resString = R.string.views_sorting),
+    FAVORITES(apiString = "favorites", resString = R.string.favorites_sorting),
+    RANDOM(apiString = "random", resString = R.string.random_sorting),
 }

@@ -26,7 +26,7 @@ fun NetworkWallpaperSearchResult.asEntity() = WallpaperListItem(
     id = this.id,
     category = this.category,
     colors = this.colors,
-    thumbUrl = this.thumbs.originalUrl,
+    thumbUrl = this.thumbs.largeUrl,
 )
 
 fun NetworkWallpaperDetail.asEntity() = Wallpaper(
